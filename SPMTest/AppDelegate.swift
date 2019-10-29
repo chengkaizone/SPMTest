@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let url = "http://onapp.yahibo.top/public/?s=api/test/list"
+        
+        Alamofire.request(url).responseJSON { (response) in
+            switch response.result {
+            case .success(let json):
+                print(json)
+                break
+            case .failure(let error):
+                print("error:\(error)")
+                break
+            }
+        }
         return true
     }
 
