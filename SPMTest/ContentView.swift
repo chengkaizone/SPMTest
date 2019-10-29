@@ -19,3 +19,9 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+struct ContentView_Sub: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
